@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Angola</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% {
+                text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #F5B700;
+                opacity: 1;
+            }
+            50% {
+                text-shadow: 0 0 10px #FFD700, 0 0 20px #F5B700, 0 0 30px #F8DE7E;
+                opacity: 0.9;
+            }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2.5s ease-in-out infinite;
+        }
+        .wheel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 8px solid #DC2626; /* brand-red */
+            transition: transform 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 0;
+            left: 50%;
+            transform-origin: 0 100%;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+        .wheel-text {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%) rotate(30deg);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .wheel-pointer {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 30px solid #121212; /* brand-black */
+            z-index: 10;
+        }
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #DC2626; /* brand-red */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid white;
+            z-index: 5;
+        }
+    </style>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-black': '#121212',
+            'brand-gray': '#1E1E1E',
+            'brand-light-gray': '#2A2A2A',
+            'brand-yellow': '#FFD700',
+            'brand-red': '#DC2626',
+            'brand-red-dark': '#B91C1C',
+            // New theme for refactored components
+            'brand-bg': '#121212',
+            'brand-bg-light': '#2A2A2A',
+            'brand-bg-card': '#1E1E1E',
+            'brand-primary': '#FFD700',
+            'brand-primary-dark': '#F5B700', // for hover states
+          },
+        },
+      },
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0",
+    "firebase/app": "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js",
+    "firebase/messaging": "https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.4.0/",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "vite": "https://aistudiocdn.com/vite@^7.1.12",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-black">
+    <div id="root"></div>
+    <!-- O script principal da aplicação. O Vite (ou outro bundler) irá processar este ficheiro. -->
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
